@@ -1,0 +1,25 @@
+{
+  "name": "sih-dementia-care-platform",
+  "version": "1.0.0",
+  "description": "Smart India Hackathon - AI & IoT Dementia Care and Holistic Health Monitoring Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "sih",
+    "dementia-care",
+    "smartwatch-iot",
+    "ai-healthcare",
+    "telemetry",
+    "cognitive-health"
+  ],
+  "author": "SIH Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.0"
+  }
+}

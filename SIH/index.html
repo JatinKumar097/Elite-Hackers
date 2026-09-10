@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braincare Hub | AI & IoT Holistic Dementia Care Platform (SIH)</title>
+    
+    <!-- Google Fonts for Modern Healthcare Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main Design System Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 1. Top Hackathon Announcement Bar -->
+    <header class="announcement-bar">
+        <div style="display: flex; align-items: center; gap: 0.65rem;">
+            <span class="badge-sih">Braincare Hub</span>
+            <span>AI & IoT Ecosystem for Holistic Dementia Care & Patient Safety</span>
+        </div>
+        <div class="telemetry-status">
+            <span><span class="status-dot"></span> Smartwatch Telemetry Active (WATCH-9982)</span>
+            <span style="opacity: 0.5;">|</span>
+            <span><i class="fa-solid fa-robot"></i> AI Memory Engine 24/7</span>
+        </div>
+    </header>
+
+    <!-- 2. Sticky Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="brand-wrapper">
+                <img class="brand-logo-img" src="assets/sih-logo.png" onerror="this.src='C:\\Users\\Admin\\Downloads\\sih.PNG'" alt="Smart India Hackathon Logo">
+                <div class="brand-title-group">
+                    <a href="#" class="brand-title">Braincare<span>Hub</span></a>
+                    <span class="brand-subtitle">AI & IoT Dementia Care Platform</span>
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <ul class="nav-links">
+                <li><a href="#vitals-section" class="nav-link">Live Vitals</a></li>
+                <li><a href="#ai-section" class="nav-link">AI Companion</a></li>
+                <li><a href="#routine-section" class="nav-link">Daily Routine</a></li>
+                <li><a href="#games-section" class="nav-link">Brain Arcade</a></li>
+                <li><a href="#safety-section" class="nav-link">Caregiver Radar</a></li>
+            </ul>
+
+            <!-- Nav Actions & Accessibility -->
+            <div class="nav-actions">
+                <!-- Text-Size & Contrast Accessibility Controls -->
+                <div class="a11y-controls" title="Elderly Accessibility Controls">
+                    <button class="a11y-btn active" id="a11yNormal" title="Normal Font">A</button>
+                    <button class="a11y-btn" id="a11yLarge" title="Large Font">A+</button>
+                    <button class="a11y-btn" id="a11yXLarge" title="Extra Large Font">A++</button>
+                    <button class="a11y-btn" id="a11yContrast" title="High Contrast Mode"><i class="fa-solid fa-circle-half-stroke"></i></button>
+                </div>
+
+                <button class="btn btn-sos" onclick="triggerEmergencySOS()" title="Immediate Emergency Assistance">
+                    <i class="fa-solid fa-triangle-exclamation"></i> SOS Alert
+                </button>
+
+                <button class="btn btn-primary" id="navAuthBtn" onclick="openModal('authModal')">
+                    Sign In / Portal
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 3. Hero Section -->
+    <section class="hero-section" id="overview">
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Left Column: Vision & Call to Actions -->
+                <div>
+                    <div class="hero-pill-badge">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Next-Gen Healthcare • Smart India Hackathon
+                    </div>
+                    <h1 class="hero-title">
+                        Empowering Dignity, Safety & Memory in <span class="gradient-text">Dementia Care.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        A compassionate, holistic ecosystem uniting real-time smartwatch vitals, 24/7 AI memory reassurance, automated medication routines, and cognitive stimulation to keep patients protected and families connected.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="#vitals-section" class="btn btn-primary" style="padding: 0.85rem 1.75rem;">
+                            <i class="fa-solid fa-chart-line"></i> View Live Vitals Hub
+                        </a>
+                        <button class="btn btn-primary" style="background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%); padding: 0.85rem 1.75rem;" onclick="startElevenLabsVoiceCall()">
+                            <i class="fa-solid fa-microphone-lines"></i> Talk to Voice Agent
+                        </button>
+                        <button class="btn btn-outline" style="padding: 0.85rem 1.75rem;" onclick="scrollToSection('ai-section')">
+                            <i class="fa-solid fa-comments"></i> AI Companion Chat
+                        </button>
+                    </div>
+
+                    <!-- Impact Metrics -->
+                    <div class="hero-stats-row">
+                        <div class="stat-card">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Continuous Biometrics</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">&lt; 3 sec</span>
+                            <span class="stat-label">SOS Alert Dispatch</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">99.4%</span>
+                            <span class="stat-label">Geofence Accuracy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Smartwatch Device Preview Card -->
+                <div>
+                    <div class="hero-watch-card">
+                        <div class="watch-card-header">
+                            <div class="patient-info">
+                                <div class="patient-avatar">AP</div>
+                                <div>
+                                    <div class="patient-name">Arthur Pendelton</div>
+                                    <div class="patient-meta">Age 74 • Mild Cognitive Impairment</div>
+                                </div>
+                            </div>
+                            <div class="device-badge">
+                                <span class="status-dot"></span>
+                                <span>WATCH-9982</span>
+                            </div>
+                        </div>
+
+                        <!-- Mini Vitals Grid -->
+                        <div class="vitals-grid-mini">
+                            <!-- Heart Rate -->
+                            <div class="vital-tile">
+                                <div class="vital-tile-header">
+                                    <span class="vital-label">Heart Rate</span>
+                                    <span class="vital-icon heartbeat"><i class="fa-solid fa-heart-pulse"></i></span>
+                                </div>
+                                <div>
+                                    <span class="vital-value" id="heroHeartRate">74</span>
+                                    <span class="vital-unit">BPM</span>
+                                </div>
+                                <span class="vital-status normal">● Normal Rhythm</span>
+                            </div>
+
+                            <!-- Blood Pressure -->
+                            <div class="vital-tile">
+                                <div class="vital-tile-header">
+                                    <span class="vital-label">Blood Pressure</span>
+                                    <span class="vital-icon"><i class="fa-solid fa-stethoscope"></i></span>
+                                </div>
+                                <div>
+                                    <span class="vital-value" id="heroBloodPressure">118/78</span>
+                                    <span class="vital-unit">mmHg</span>
+                                </div>
+                                <span class="vital-status normal">● Optimal</span>
+                            </div>
+
+                            <!-- Daily Steps -->
+                            <div class="vital-tile">
+                                <div class="vital-tile-header">
+                                    <span class="vital-label">Activity</span>
+                                    <span class="vital-icon"><i class="fa-solid fa-person-walking"></i></span>
+                                </div>
+                                <div>
+                                    <span class="vital-value" id="heroSteps">3,840</span>
+                                    <span class="vital-unit">steps</span>
+                                </div>
+                                <span class="vital-status normal">● 76% of Goal</span>
+                            </div>
+
+                            <!-- AI Assistant Status -->
+                            <div class="vital-tile">
+                                <div class="vital-tile-header">
+                                    <span class="vital-label">AI Companion</span>
+                                    <span class="vital-icon"><i class="fa-solid fa-robot"></i></span>
+                                </div>
+                                <div>
+                                    <span class="vital-value" style="font-size: 1.25rem;">Active</span>
+                                </div>
+                                <span class="vital-status normal">● Ready 24/7</span>
+                            </div>
+                        </div>
+
+                        <!-- Geofence Safe Zone Notice -->
+                        <div class="geofence-strip">
+                            <span><i class="fa-solid fa-shield-halved"></i></span>
+                            <span>Inside Safe Perimeter: Greenfield Gardens (Home Zone)</span>
+                        </div>
+
+                        <!-- Interactive Actions for Judges / Users -->
+                        <div class="watch-card-actions">
+                            <button class="btn btn-primary" id="syncWatchBtn" style="flex: 1; font-size: 0.85rem;" onclick="syncSmartwatchData()">
+                                <i class="fa-solid fa-bolt"></i> Trigger Watch Sync
+                            </button>
+                            <button class="btn btn-outline" style="flex: 1; font-size: 0.85rem;" onclick="triggerVitalAnomaly()">
+                                <i class="fa-solid fa-triangle-exclamation"></i> Test Anomaly
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Pillars of Holistic Dementia Care -->
+    <section class="section-padding" style="background: #ffffff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">Holistic Framework</span>
+                <h2 class="section-title">Comprehensive 360° Care Architecture</h2>
+                <p class="section-subtitle">
+                    Dementia care requires addressing psychological, physiological, cognitive, and safety needs simultaneously. SmritiCare bridges them through seamless IoT and AI integration.
+                </p>
+            </div>
+
+            <div class="pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="pillar-card">
+                    <div class="pillar-icon-box"><i class="fa-solid fa-clock"></i></div>
+                    <h3 class="pillar-title">Smartwatch Telemetry</h3>
+                    <p class="pillar-desc">
+                        Continuous passive vital tracking (Heart Rate, Blood Pressure, Steps, and Fall Detection) without burdensome manual check-ins.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="pillar-card">
+                    <div class="pillar-icon-box"><i class="fa-solid fa-robot"></i></div>
+                    <h3 class="pillar-title">24/7 AI Companion</h3>
+                    <p class="pillar-desc">
+                        Empathetic conversational memory assistant providing orientation, soothing reassurance during confusion episodes, and reminiscence prompts.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="pillar-card">
+                    <div class="pillar-icon-box"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <h3 class="pillar-title">Routine & Medication Anchors</h3>
+                    <p class="pillar-desc">
+                        Time-oriented visual and audio cues for meals, walks, medications, and sleep to preserve cognitive structure and habit memory.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="pillar-card">
+                    <div class="pillar-icon-box"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="pillar-title">Cognitive Brain Games</h3>
+                    <p class="pillar-desc">
+                        Clinically-tailored memory and pattern games that stimulate neuroplasticity while recording longitudinal cognitive trajectory scores.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Section 1: Live Smartwatch Vitals Dashboard -->
+    <section class="section-padding" id="vitals-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">Biometric Telemetry</span>
+                <h2 class="section-title">Real-Time Patient Vitals Dashboard</h2>
+                <p class="section-subtitle">
+                    Live biometric telemetry streaming from hardware wearable sensors (`/api/watch/sync` endpoint in `server.js`).
+                </p>
+            </div>
+
+            <div class="vitals-dashboard-card">
+                <!-- Dashboard Toolbar -->
+                <div class="dashboard-toolbar">
+                    <div class="dashboard-title-group">
+                        <h3>Patient Stream: Arthur Pendelton</h3>
+                        <p>Paired Device: Smartwatch Model X-99 • Battery: 88% • Signal: Excellent</p>
+                    </div>
+                    <div class="sync-buttons-group">
+                        <button class="btn btn-outline" onclick="syncSmartwatchData()">
+                            <i class="fa-solid fa-arrows-rotate"></i> Force Sync Now
+                        </button>
+                        <button class="btn btn-primary" onclick="openModal('sosModal')">
+                            <i class="fa-solid fa-truck-medical"></i> Emergency Dispatch
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ECG Waveform Canvas Panel -->
+                <div class="ecg-monitor-panel">
+                    <div class="ecg-header">
+                        <div class="ecg-label">LIVE PLETHYSMOGRAPHY / ECG RHYTHM LEAD-II</div>
+                        <div class="ecg-readout" id="ecgRateDisplay">74 BPM</div>
+                    </div>
+                    <canvas id="ecgCanvas"></canvas>
+                </div>
+
+                <!-- Detailed 4-Metric Grid -->
+                <div class="telemetry-cards-grid">
+                    <!-- Metric 1: Heart Rate -->
+                    <div class="telemetry-card">
+                        <div class="telemetry-card-top">
+                            <span class="telemetry-metric-title">Heart Rate (BPM)</span>
+                            <span class="heartbeat" style="font-size: 1.4rem;"><i class="fa-solid fa-heart-pulse"></i></span>
+                        </div>
+                        <div>
+                            <div class="telemetry-metric-value" id="liveHeartRate">74</div>
+                            <span class="vital-status normal">● Normal Resting Heart Rate</span>
+                        </div>
+                        <div class="telemetry-metric-note" style="margin-top: 0.75rem;">
+                            Baseline: 68 - 82 BPM
+                        </div>
+                    </div>
+
+                    <!-- Metric 2: Blood Pressure -->
+                    <div class="telemetry-card">
+                        <div class="telemetry-card-top">
+                            <span class="telemetry-metric-title">Blood Pressure</span>
+                            <span style="font-size: 1.4rem;"><i class="fa-solid fa-stethoscope"></i></span>
+                        </div>
+                        <div>
+                            <div class="telemetry-metric-value" id="liveBloodPressure">118/78</div>
+                            <span class="vital-status normal">● Optimal Cardiovascular Range</span>
+                        </div>
+                        <div class="telemetry-metric-note" style="margin-top: 0.75rem;">
+                            Last calibrated 20 mins ago
+                        </div>
+                    </div>
+
+                    <!-- Metric 3: Steps & Mobility -->
+                    <div class="telemetry-card">
+                        <div class="telemetry-card-top">
+                            <span class="telemetry-metric-title">Daily Steps & Mobility</span>
+                            <span style="font-size: 1.4rem;"><i class="fa-solid fa-person-walking"></i></span>
+                        </div>
+                        <div>
+                            <div class="telemetry-metric-value" id="liveSteps">3,840</div>
+                            <span class="vital-status normal">● Active Day</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="stepProgressBar" style="width: 76%;"></div>
+                        </div>
+                        <div class="telemetry-metric-note" id="stepPercentNote" style="margin-top: 0.4rem;">
+                            76% of daily 5,000 steps goal
+                        </div>
+                    </div>
+
+                    <!-- Metric 4: Blood Oxygen & Fall Status -->
+                    <div class="telemetry-card">
+                        <div class="telemetry-card-top">
+                            <span class="telemetry-metric-title">SpO2 & Safety</span>
+                            <span style="font-size: 1.4rem;"><i class="fa-solid fa-lungs"></i></span>
+                        </div>
+                        <div>
+                            <div class="telemetry-metric-value" id="liveSpo2">98%</div>
+                            <span class="vital-status normal">● Stable Oxygenation</span>
+                        </div>
+                        <div class="telemetry-metric-note" style="margin-top: 0.75rem;">
+                            Fall Sensor: Armed &amp; Stable
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Section 2: 24/7 AI Dementia Care Companion -->
+    <section class="section-padding ai-section" id="ai-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">Conversational AI</span>
+                <h2 class="section-title">24/7 AI Memory & Comfort Companion</h2>
+                <p class="section-subtitle">
+                    Designed with dementia care psychology to reduce anxiety, provide reassuring orientation, and assist with immediate memory recall.
+                </p>
+            </div>
+
+            <!-- ElevenLabs Voice Agent Showcase Card -->
+            <div class="elevenlabs-agent-card">
+                <div class="elevenlabs-header">
+                    <div class="elevenlabs-badge">
+                        <i class="fa-solid fa-microphone-lines"></i> ElevenLabs Conversational Voice Agent
+                    </div>
+                    <span class="vital-status normal" style="color: #34d399;"><span class="status-dot" style="box-shadow: 0 0 8px #34d399; background-color: #34d399;"></span> Voice Agent Ready</span>
+                </div>
+                <h3 class="elevenlabs-title">Ultra-Realistic Voice Companion for Dementia Care</h3>
+                <p class="elevenlabs-desc">
+                    Directly integrated with <strong>ElevenLabs Conversational AI</strong> (Agent ID: <code>agent_3801m2376aq3f45t111pzcyw9e1c</code>). Experience natural real-time spoken dialogue with compassionate tone, low latency, and memory recall support.
+                </p>
+                <div class="elevenlabs-actions">
+                    <button class="btn btn-primary" style="background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);" onclick="startElevenLabsVoiceCall()">
+                        <i class="fa-solid fa-phone"></i> Start Live Voice Call
+                    </button>
+                    <a href="https://elevenlabs.io/app/talk-to?agent_id=agent_3801m2376aq3f45t111pzcyw9e1c&branch_id=agtbrch_3201m2376czsfmy9bnfnpnbr79t3" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Open in ElevenLabs Studio
+                    </a>
+                </div>
+            </div>
+
+            <div class="ai-chat-layout">
+                <!-- Left: Capabilities & Quick Prompts -->
+                <div class="ai-features-column">
+                    <div class="ai-feature-item">
+                        <div class="ai-feature-icon"><i class="fa-solid fa-compass"></i></div>
+                        <div class="ai-feature-text">
+                            <h4>Orientation & Grounding</h4>
+                            <p>Instantly answers "Where am I?", "What day is it?", and "Who is with me?" using comforting, familiar anchors.</p>
+                        </div>
+                    </div>
+
+                    <div class="ai-feature-item">
+                        <div class="ai-feature-icon"><i class="fa-solid fa-pills"></i></div>
+                        <div class="ai-feature-text">
+                            <h4>Medication & Routine Recall</h4>
+                            <p>Assures patients when their medication has already been taken, eliminating duplicate dose risks.</p>
+                        </div>
+                    </div>
+
+                    <div class="ai-feature-item">
+                        <div class="ai-feature-icon"><i class="fa-solid fa-music"></i></div>
+                        <div class="ai-feature-text">
+                            <h4>Reminiscence & Calming Protocol</h4>
+                            <p>Triggers cherished family memories and calming audio suggestions during sundowning or agitated episodes.</p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Quick Prompt Chips -->
+                    <div class="quick-prompts-group">
+                        <div class="quick-prompts-title">Try Quick Reassurance Prompts:</div>
+                        <div class="chips-container">
+                            <button class="prompt-chip" onclick="askAI('Where am I right now?')"><i class="fa-solid fa-house"></i> "Where am I right now?"</button>
+                            <button class="prompt-chip" onclick="askAI('Did I take my morning medicine?')"><i class="fa-solid fa-pills"></i> "Did I take my medicine?"</button>
+                            <button class="prompt-chip" onclick="askAI('Who are my family members?')"><i class="fa-solid fa-people-roof"></i> "Who are my family members?"</button>
+                            <button class="prompt-chip" onclick="askAI('I feel nervous and confused')"><i class="fa-solid fa-hand-holding-heart"></i> "I feel nervous and confused"</button>
+                            <button class="prompt-chip" onclick="askAI('What is my plan for this afternoon?')"><i class="fa-solid fa-clock"></i> "What is my afternoon plan?"</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Chat Interface -->
+                <div class="chat-window">
+                    <div class="chat-header">
+                        <div class="chat-bot-info">
+                            <div class="bot-avatar-badge"><i class="fa-solid fa-robot"></i></div>
+                            <div>
+                                <h4>Smriti AI Companion</h4>
+                                <p><span class="status-dot"></span> Online • Warm &amp; Empathetic Assistant</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-light" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;" onclick="toggleVoiceOutput()" title="Toggle Voice Assistance">
+                            <i class="fa-solid fa-volume-high"></i> Voice Mode
+                        </button>
+                    </div>
+
+                    <!-- Chat Messages Flow -->
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="chat-msg bot">
+                            Hello Arthur! I am your companion, Smriti. I'm here to assist you anytime. Everything is safe and calm today. How can I help you right now?
+                            <span class="chat-timestamp">10:00 AM</span>
+                        </div>
+                    </div>
+
+                    <!-- Chat Input Area -->
+                    <div class="chat-input-area">
+                        <input type="text" id="chatInput" class="chat-input" placeholder="Type a question or feeling...">
+                        <button class="voice-btn" onclick="toggleVoiceOutput()" title="Speech Input"><i class="fa-solid fa-microphone"></i></button>
+                        <button class="btn btn-primary" id="chatSendBtn" style="border-radius: var(--radius-full); padding: 0.65rem 1.25rem;">
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Section 3: Daily Activity & Medication Routines -->
+    <section class="section-padding" id="routine-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">Daily Anchors</span>
+                <h2 class="section-title">Routine & Medication Schedule</h2>
+                <p class="section-subtitle">
+                    Matching the `Reminder` schema in `models.js` (Food, Walk, Sleep, Medication) to maintain cognitive independence.
+                </p>
+            </div>
+
+            <div class="routine-grid">
+                <!-- Left: Interactive Checklist -->
+                <div class="routine-panel">
+                    <div class="routine-header">
+                        <div>
+                            <h3 style="font-family: var(--font-heading); font-size: 1.25rem;">Today's Schedule</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Click items to mark them as completed</p>
+                        </div>
+                        <button class="btn btn-outline" style="font-size: 0.85rem;" onclick="openModal('addReminderModal')">
+                            <i class="fa-solid fa-plus"></i> Add Reminder
+                        </button>
+                    </div>
+
+                    <div class="reminders-list" id="remindersList">
+                        <!-- Populated dynamically by app.js -->
+                    </div>
+                </div>
+
+                <!-- Right: Adherence Statistics & Guidance -->
+                <div class="routine-progress-card">
+                    <div>
+                        <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.5rem;">Routine Adherence Rate</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">
+                            Consistent routines significantly reduce disorientation and agitation in patients with early to mid-stage dementia.
+                        </p>
+                    </div>
+
+                    <div class="adherence-circle-wrap">
+                        <div class="adherence-big-num" id="routinePercentText">60%</div>
+                        <div class="adherence-sub" id="routineCountText">3 of 5 Daily Routines Completed</div>
+                    </div>
+
+                    <div style="background: var(--bg-soft); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+                        <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem;"><i class="fa-solid fa-lightbulb" style="color: var(--warning);"></i> Caregiver Tip</h4>
+                        <p style="font-size: 0.825rem; color: var(--text-muted); line-height: 1.5;">
+                            Arthur responds best when asked about his garden walk 15 minutes in advance while playing light acoustic music.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Section 4: Cognitive Brain Training Arcade -->
+    <section class="section-padding games-section" id="games-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">Neuroplastic Stimulation</span>
+                <h2 class="section-title">Cognitive Memory Arcade ("MindGlow")</h2>
+                <p class="section-subtitle">
+                    Clinically-tailored pattern and sequence recall games to exercise short-term memory (`/api/game/score` endpoint).
+                </p>
+            </div>
+
+            <div class="brain-game-card">
+                <div class="game-header-bar">
+                    <div>
+                        <h3 style="font-family: var(--font-heading); font-size: 1.3rem;">Color &amp; Sequence Memory Training</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-muted);">Watch the color sequence light up, then repeat it accurately.</p>
+                    </div>
+                    <div class="game-score-badge">
+                        <div class="score-counter">
+                            <span>Level</span>
+                            <strong id="gameCurrentLevel">1</strong>
+                        </div>
+                        <div class="score-counter">
+                            <span>Current Score</span>
+                            <strong id="gameCurrentScore">0</strong>
+                        </div>
+                        <div class="score-counter">
+                            <span>High Score</span>
+                            <strong id="gameHighScore">0</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Instruction Text -->
+                <div id="gameInstruction">Press "Start Game" to begin memory stimulation</div>
+
+                <!-- 4 Colored Pads -->
+                <div class="simon-board">
+                    <button class="simon-pad simon-green" data-color="green" aria-label="Green Pad"></button>
+                    <button class="simon-pad simon-red" data-color="red" aria-label="Red Pad"></button>
+                    <button class="simon-pad simon-yellow" data-color="yellow" aria-label="Yellow Pad"></button>
+                    <button class="simon-pad simon-blue" data-color="blue" aria-label="Blue Pad"></button>
+                </div>
+
+                <!-- Game Controls -->
+                <div class="game-controls">
+                    <button class="btn btn-primary" id="startGameBtn" style="padding: 0.8rem 2rem;">
+                        <i class="fa-solid fa-play"></i> Start Game
+                    </button>
+                    <button class="btn btn-outline" onclick="showToast('Cognitive workout score saved to patient profile!', '<i class=\'fa-solid fa-brain\'></i>')">
+                        <i class="fa-solid fa-floppy-disk"></i> Save Score
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Section 5: Caregiver Radar & Geofencing Shield -->
+    <section class="section-padding" id="safety-section" style="background: #ffffff; border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-pill">Caregiver & Safety Shield</span>
+                <h2 class="section-title">Geofencing Radar & Wandering Protection</h2>
+                <p class="section-subtitle">
+                    Dementia wandering is a major risk. Our IoT geofence creates an automated invisible perimeter around the patient's residence.
+                </p>
+            </div>
+
+            <div class="safety-grid">
+                <!-- Radar Display Screen -->
+                <div class="radar-display-box">
+                    <div class="radar-scope">
+                        <div class="radar-sweep"></div>
+                        <div class="radar-ring ring-1"></div>
+                        <div class="radar-ring ring-2"></div>
+                        <div class="radar-ring ring-3"></div>
+                        <!-- Patient Blip -->
+                        <div class="patient-blip" id="patientRadarBlip" title="Arthur's Location"></div>
+                    </div>
+                    <div class="radar-hud">
+                        SAFE PERIMETER: 150m RADIUS • GPS ACCURACY: 1.8m
+                    </div>
+                </div>
+
+                <!-- Safety Details & Control -->
+                <div class="safety-details-column">
+                    <div class="safety-card-item">
+                        <div class="safety-card-left">
+                            <span style="font-size: 1.5rem; color: var(--teal);"><i class="fa-solid fa-house-chimney"></i></span>
+                            <div>
+                                <h4 style="font-size: 1rem; color: var(--navy);">Home Safe Zone</h4>
+                                <p id="geofenceStatusText" style="font-size: 0.85rem; color: var(--teal);">
+                                    Arthur is securely inside Home Garden Safe Zone (150m radius).
+                                </p>
+                            </div>
+                        </div>
+                        <span class="vital-status normal">SAFE</span>
+                    </div>
+
+                    <div class="safety-card-item">
+                        <div class="safety-card-left">
+                            <span style="font-size: 1.5rem; color: var(--danger);"><i class="fa-solid fa-bell"></i></span>
+                            <div>
+                                <h4 style="font-size: 1rem; color: var(--navy);">Fall Detection Accelerometer</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted);">
+                                    High-G impact sensor armed. Auto-dispatches emergency SMS on sudden drop.
+                                </p>
+                            </div>
+                        </div>
+                        <span class="vital-status normal">ARMED</span>
+                    </div>
+
+                    <div class="safety-card-item">
+                        <div class="safety-card-left">
+                            <span style="font-size: 1.5rem; color: var(--primary);"><i class="fa-solid fa-mobile-screen"></i></span>
+                            <div>
+                                <h4 style="font-size: 1rem; color: var(--navy);">Caregiver Primary Contact</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted);">
+                                    Sarah Pendelton (Daughter) • +91 98765 43210
+                                </p>
+                            </div>
+                        </div>
+                        <span class="vital-status normal">VERIFIED</span>
+                    </div>
+
+                    <!-- Wandering Breach Simulation Button -->
+                    <button class="btn btn-outline" id="wanderSimBtn" style="margin-top: 0.5rem; width: 100%;" onclick="toggleWanderingSimulation()">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Simulate Wandering Incident
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Modals -->
+
+    <!-- Emergency SOS Modal -->
+    <div class="modal-backdrop" id="sosModal">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeModal('sosModal')"><i class="fa-solid fa-xmark"></i></button>
+            <div class="sos-banner">
+                <span style="font-size: 1.75rem; color: var(--danger);"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                <div>
+                    <strong style="display: block; font-size: 1.1rem;">EMERGENCY SOS TRIGGERED</strong>
+                    <span style="font-size: 0.85rem;">Zero-latency emergency dispatch protocol</span>
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <p style="font-size: 0.95rem; color: var(--navy); margin-bottom: 0.75rem;">
+                    <strong>Patient:</strong> Arthur Pendelton (Age 74)<br>
+                    <strong>Current GPS:</strong> 12.9716° N, 77.5946° E (Greenfield Gardens)<br>
+                    <strong>Heart Rate:</strong> 74 BPM • Smartwatch Battery: 88%
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">
+                    Clicking dispatch will immediately trigger an automated SOS phone call, GPS pin notification to caregiver Sarah, and alert local emergency services.
+                </p>
+            </div>
+
+            <div style="display: flex; gap: 0.75rem;">
+                <button class="btn btn-sos" style="flex: 1;" onclick="dispatchEmergencyTeam()">
+                    <i class="fa-solid fa-truck-medical"></i> Dispatch Caregiver &amp; 108 Emergency
+                </button>
+                <button class="btn btn-light" onclick="closeModal('sosModal')">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign In / Register Modal (Matching User schema) -->
+    <div class="modal-backdrop" id="authModal">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeModal('authModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="modal-title">SmritiCare Portal Access</h3>
+            <p class="modal-subtitle">Log in to view patient vitals, manage routines, and monitor telemetry.</p>
+
+            <!-- Role Selector -->
+            <div class="role-switcher">
+                <button class="role-btn active" type="button">Patient / Family</button>
+                <button class="role-btn" type="button">Doctor / Caregiver</button>
+            </div>
+
+            <form onsubmit="handleLoginSubmit(event)">
+                <div class="form-group">
+                    <label class="form-label" for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" class="form-input" placeholder="arthur.care@example.com" required value="arthur@example.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required value="demo1234">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="loginWatchId">Smartwatch Hardware Device ID</label>
+                    <input type="text" id="loginWatchId" class="form-input" value="WATCH-9982" readonly>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+                    Update / Save Session
+                </button>
+                <button type="button" class="btn btn-outline" style="width: 100%; margin-top: 0.75rem; border-color: var(--danger); color: var(--danger);" onclick="signOut()">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out / Switch Account
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add New Reminder Modal -->
+    <div class="modal-backdrop" id="addReminderModal">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeModal('addReminderModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h3 class="modal-title">Schedule Routine Reminder</h3>
+            <p class="modal-subtitle">Add a structured daily habit or medication alarm for the patient.</p>
+
+            <form onsubmit="addCustomReminder(event)">
+                <div class="form-group">
+                    <label class="form-label" for="reminderTypeSelect">Routine Category</label>
+                    <select id="reminderTypeSelect" class="form-input">
+                        <option value="medication">Medication</option>
+                        <option value="food">Nutrition / Food</option>
+                        <option value="walk">Walk / Physical Activity</option>
+                        <option value="sleep">Rest / Sleep</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="reminderLabelInput">Activity Description</label>
+                    <input type="text" id="reminderLabelInput" class="form-input" placeholder="e.g. Afternoon hydration & fruit snack" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="reminderTimeInput">Scheduled Time</label>
+                    <input type="time" id="reminderTimeInput" class="form-input" required value="15:30">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+                    Save to Patient Schedule
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 11. Floating Quick AI Assistance Button -->
+    <button class="floating-ai-trigger" onclick="scrollToSection('ai-section')">
+        <span><i class="fa-solid fa-comment-dots"></i></span>
+        <span>Need Help? Ask Smriti AI</span>
+    </button>
+
+    <!-- 12. Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>SmritiCare AI</h4>
+                    <p>
+                        An innovative Smart India Hackathon healthcare initiative uniting IoT smartwatches, empathetic artificial intelligence, and clinical routines for comprehensive dementia care.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>Platform</h5>
+                    <ul class="footer-links">
+                        <li><a href="#vitals-section">Live Vitals Telemetry</a></li>
+                        <li><a href="#ai-section">24/7 AI Companion</a></li>
+                        <li><a href="#routine-section">Daily Reminders</a></li>
+                        <li><a href="#games-section">Cognitive Brain Games</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Safety &amp; Hardware</h5>
+                    <ul class="footer-links">
+                        <li><a href="#safety-section">Geofence Safe Zone</a></li>
+                        <li><a href="#safety-section">Fall Detection</a></li>
+                        <li><a href="javascript:triggerEmergencySOS()">Emergency SOS</a></li>
+                        <li><a href="javascript:syncSmartwatchData()">Watch Sync API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Emergency Help</h5>
+                    <ul class="footer-links">
+                        <li style="color: #ffffff; font-weight: 700;">24/7 Medical Hotline: 108</li>
+                        <li style="color: #ffffff; font-weight: 700;">Dementia Helpline: 1800-11-2020</li>
+                        <li>Greenfield Gardens Care Node</li>
+                        <li>Bangalore, Karnataka, India</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    &copy; 2024 - 2026 Braincare Hub Platform. Smart India Hackathon (SIH) Project. All rights reserved.
+                </div>
+                <div>
+                    Designed for Dementia Patient Safety, Compassion &amp; Dignity.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ElevenLabs Conversational AI Voice Agent Widget -->
+    <elevenlabs-convai agent-id="agent_3801m2376aq3f45t111pzcyw9e1c"></elevenlabs-convai>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+
+    <!-- Interactive Client Script -->
+    <script src="app.js" defer></script>
+</body>
+</html>
