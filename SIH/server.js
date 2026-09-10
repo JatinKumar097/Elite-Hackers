@@ -11,7 +11,7 @@ app.use(express.static(__dirname));
 
 // Serve login.html on root (First page)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'login.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Serve main website on /main or /dashboard
