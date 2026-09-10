@@ -24,7 +24,7 @@ app.get('/dashboard', (req, res) => {
 });
 
 // MongoDB Connection string (Use environment variable or replace YOUR_USERNAME with your real MongoDB Atlas username)
-const dbURI = process.env.MONGODB_URI || "mongodb+srv://YOUR_ACTUAL_USERNAME:bII4HArhwyPCd8yM@cluster0.fnklfis.mongodb.net/dementia_care_db?retryWrites=true&w=majority";
+const dbURI = process.env.MONGODB_URI || "mongodb+srv://jk0471080_db_user:bII4HArhwyPCd8yM@cluster0.fnklfis.mongodb.net/dementia_care_db?retryWrites=true&w=majority";
 
 mongoose.connect(dbURI)
   .then(() => console.log('MongoDB Atlas Connected Successfully!'))
